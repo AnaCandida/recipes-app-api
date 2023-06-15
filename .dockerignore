@@ -1,0 +1,15 @@
+#Git
+.git
+.gitignore
+
+#Docker
+.docker
+
+#Python  - cache armazenado pelo python ao executar o projeto
+app/__pycache__
+app/*/__pycache__
+app/*/*/__pycache__
+app/*/*/*__pycache__
+.env
+.venv/
+venv/
