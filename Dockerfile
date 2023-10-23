@@ -21,9 +21,13 @@ ARG DEV= False
 #adiciona um usuario 'django-user'.nao permite que o usuario tenha senha e nem cria uma home. evita usar o root como usuario dentro do container por seguranca
 RUN python -m venv /py && \
     /py/bin/pip install --upgrade pip && \
+    apk add --upgrade --no-cache postgresql-client && \
+    apk add --update --no-cache --virtual .tmp-build-deps \
+    build-base postgresql-dev musl-dev && \
     /py/bin/pip install -r /requirements.txt && \
     if [ "$DEV" = "True" ] ; then /py/bin/pip install -r /requirements.dev.txt; fi && \
     rm -rf /temp && \
+    apk del .tmp-build-deps && \
     adduser \
     --disabled-password \
     --no-create-home \
