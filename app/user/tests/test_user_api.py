@@ -6,7 +6,7 @@ from rest_framework.test import APIClient
 from rest_framework import status
 
 
-CREATE_USER_URL = reverse('user_create')
+CREATE_USER_URL = reverse('user:user_create')
 
 
 
